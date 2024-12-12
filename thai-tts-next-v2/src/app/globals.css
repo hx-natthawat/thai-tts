@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 267 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 267 50% 20%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 267 20% 30%;
+    --muted-foreground: 267 10% 70%;
+    --accent: 267 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 267 30% 30%;
+    --input: 267 30% 30%;
+    --ring: 267 100% 50%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sarabun antialiased;
+  }
+}
+
+/* Custom styles for futuristic look */
+.glassmorphism {
+  @apply bg-black/30 backdrop-blur-lg border border-white/10 shadow-xl;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600;
+}
+
+.gradient-bg {
+  @apply bg-gradient-to-br from-black via-gray-900 to-purple-900;
+}
+
+.neon-glow {
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5),
+               0 0 20px rgba(168, 85, 247, 0.3),
+               0 0 30px rgba(168, 85, 247, 0.2);
+}
+
+.button-glow {
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.3),
+              0 0 20px rgba(168, 85, 247, 0.2);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}

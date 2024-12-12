@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Text to Speech</title>
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a73e8;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .text-area-container {
+            position: relative;
+            margin: 10px 0;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: 'Sarabun', sans-serif;
+        }
+        .auto-speak-indicator {
+            position: absolute;
+            right: 10px;
+            bottom: 20px;
+            background-color: rgba(26, 115, 232, 0.1);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 14px;
+            color: #1a73e8;
+            display: none;
+        }
+        .auto-speak-indicator.show {
+            display: block;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #1557b0;
+        }
+        select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        .sample-text {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+        .sample-text:hover {
+            background-color: #e9ecef;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>แปลงข้อความเป็นเสียงพูดภาษาไทย</h1>
+        
+        <div class="sample-text" onclick="useExample(this)">
+            ตัวอย่าง: สวัสดีครับ ยินดีต้อนรับสู่โปรแกรมแปลงข้อความเป็นเสียงพูดภาษาไทย คลิกที่ข้อความนี้เพื่อใช้เป็นตัวอย่าง
+        </div>
+
+        <div class="text-area-container">
+            <textarea id="text-input" placeholder="พิมพ์หรือวางข้อความที่นี่..."></textarea>
+            <div id="auto-speak-indicator" class="auto-speak-indicator">จะเริ่มพูดใน 3 วินาที...</div>
+        </div>
+        
+        <div class="controls">
+            <select id="voice-select">
+                <option value="female">เสียงผู้หญิง</option>
+                <option value="male">เสียงผู้ชาย</option>
+            </select>
+            <button onclick="speak()">พูด</button>
+            <button onclick="pause()">หยุดชั่วคราว</button>
+            <button onclick="resume()">พูดต่อ</button>
+            <button onclick="stop()">หยุด</button>
+        </div>
+
+        <div class="sample-text" onclick="useExample(this)">
+            ตัวอย่าง: เทคโนโลยีการแปลงข้อความเป็นเสียงพูดช่วยให้การสื่อสารเป็นเรื่องง่าย และช่วยให้ผู้พิการทางสายตาสามารถเข้าถึงข้อมูลได้ง่ายขึ้น
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
